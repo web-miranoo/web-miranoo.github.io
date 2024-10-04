@@ -3,10 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Falling Stars</title>
   <link rel="stylesheet" href="style.css">
+  <title>Miranoo</title>
+  <script src="main.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 0.9em;
+      text-align: center;
+    }
+
+    .gcse-searchresults {
+      max-height: 20px;
+      overflow-y: scroll;
+      font-size: 0.5rem;
+      padding: 0;        
+    }
+  </style>
 </head>
 <body>
-  <script src="main.js"></script>
+  <h2>Miranoo Search Engine</h2>
+  <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
+  <div class="gcse-search"></div>
+  <div class="gcse-searchresults"></div>
 </body>
 </html>
