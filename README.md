@@ -16,7 +16,7 @@ Simply enter your query in the search bar 🔍, and Miranoo will provide relevan
 Miranoo is licensed under the MIT License. Feel free to use, modify, and distribute it as per the terms of the license.
 
 ## 📧 Contact
-For any questions, issues 🐛, or suggestions 💡, please open an issue on GitHub or reach out to us at [support@miranoo.com](mailto:support@miranoo.com).
+For any questions, issues 🐛, or suggestions 💡, please open an issue on GitHub or reach out to us at [e.miranoo.infoline@gmail.com](mailto:e.miranoo.infoline@gmail.com).
 
 ---
 
