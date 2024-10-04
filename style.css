@@ -1,1 +1,30 @@
+html {
+  color-scheme: dark;
+}
 
+body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+body::before {
+  --size: 2.75rem;
+  --line: color-mix(in oklch, canvasText, transparent 70%);
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    var(--line) 0.0625rem,
+    transparent 0.0625rem var(--size)
+    )
+    50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 0.0625rem, transparent 0.0625rem var(--size)) 50% 50% / var(--size) var(--size);
+  mask: linear-gradient(-20deg, transparent 50%, #f0f0f0);
+  top: 0;
+  transform-style: flat;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
