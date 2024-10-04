@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Miranoo</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h2 {
-      margin-bottom: 0.9em;
-      text-align: center;
-    }
-
-    /* New styles for smaller search results */
-    .gcse-searchresults {
-    max-height: 20px; /* Limit the height */
-    overflow-y: scroll; /* Enable vertical scrolling */
-    font-size: 0.5rem;  /* Decreased font size */
-    padding: 0;        /* Removed padding */
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Miranoo Loading Animation</title>
+    <style>
+        /* Add custom inline styles here if needed */
+    </style>
 </head>
 <body>
-  <h2>Miranoo Search Engine</h2>
-  <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
-  <div class="gcse-search"></div>
-  <div class="gcse-searchresults"></div>
+    <div class="content" id="loading-animation">
+        <div class="cube"></div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <h2>Miranoo Search Engine</h2>
+        <!-- Google Custom Search Element -->
+        <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
+        <div class="gcse-search"></div>
+        <div class="gcse-searchresults"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Hide loading animation and show main content
+            document.getElementById('loading-animation').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.body.style.overflow = 'auto'; // Allow scrolling after page is loaded
+        });
+    </script>
 </body>
 </html>
