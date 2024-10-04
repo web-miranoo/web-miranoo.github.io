@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Miranoo</title>
-</head>
-<body>
-    <h2>Miranoo Search Engine</h2>
-    <!-- Google Custom Search Element -->
-    <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
-    <div class="gcse-search"></div>
     <style>
         body {
             display: flex;
@@ -24,6 +18,16 @@
             margin-bottom: 0.9em;
             text-align: center;
         }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .gcse-searchbox,
+        .gcse-searchresults {
+            width: 45%;
+        }
         .gcse-search {
             margin-top: 0;
             font-size: 0.9em;
@@ -36,5 +40,14 @@
             margin-left: -5px;
         }
     </style>
+</head>
+<body>
+    <h2>Miranoo Search Engine</h2>
+    <!-- Google Custom Search Element -->
+    <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
+    <div class="container">
+        <div class="gcse-searchbox"></div>
+        <div class="gcse-searchresults"></div>
+    </div>
 </body>
 </html>
