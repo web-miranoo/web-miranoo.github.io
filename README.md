@@ -15,7 +15,7 @@ Simply enter your query in the search bar 🔍, and Miranoo will provide relevan
 ## 📜 License
 Miranoo is currently licensed under the Linko Softworks LLC. Any modification, editing, modding, cloning, etc... will result to legal actions.
 
-2024 - Miranoo 2.0 Reserved©
+2024 - Miranoo 2.0 Reserved®
 
 ## 📧 Contact
 For any questions, issues 🐛, or suggestions 💡, please open an issue on GitHub or reach out to us at [e.miranoo.infoline@gmail.com](mailto:e.miranoo.infoline@gmail.com).
