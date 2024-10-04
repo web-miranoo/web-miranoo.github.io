@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>To Do List</title>
+  <script src="main.js"></script>
+</head>
 
+<body>
+
+  <div class="container">
+	<header class="header">
+		<h1>Todo Looo</h1>
+	</header>
+
+	<section class="todo-input-section">
+		<div class="todo-input-wrapper">
+			<input type="text" class="todo-input" placeholder="What do you want to do?" />
+			<button class="add-button">Add</button>
+		</div>
+	</section>
+	<p> </p>
+	<section class="todo-list-section">
+		<ul class="todo-list"></ul>
+	</section>
+	<!-- Backup and Restore buttons -->
+	<div class="backup-restore-buttons">
+		<button class="backup-button">Backup</button>
+		<button class="restore-button">Restore</button>
+	</div>
+	<!-- Completed tasks button -->
+	<button class="completed-tasks-button">Completed Tasks <i class="fas fa-tasks"></i></button>
+
+	<!-- Modal for completed tasks -->
+	<div class="modal">
+		<div class="modal-content">
+			<span class="close-button">&times;</span>
+			<h2 class="h2sep">Completed Tasks</h2>
+			<ul class="completed-tasks-list"></ul>
+		</div>
+	</div>
+</div>
+  
+</body>
+
+</html>
