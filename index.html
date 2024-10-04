@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Two-Column Layout with GPSE</title>
-  <style>
-    /* ... same CSS styles as before to define your two columns ... */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miranoo</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            margin-bottom: 0.9em;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="column">
-      <gcse:search></gcse:search>
-    </div>
-    <div class="column">
-      <h2>Welcome to My Website!</h2>
-      <p>This is the right column. You can add any content here.</p>
-    </div>
-  </div>
-  <script>
-    (function() {
-      var cx = 'a781e2ac758ca4f26';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  </script>
+    <h2>Miranoo Search Engine</h2>
+    <!-- Google Custom Search Element -->
+    <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
+    <div class="gcse-search"></div>
+    <div class="gcse-searchresults"></div>
 </body>
 </html>
