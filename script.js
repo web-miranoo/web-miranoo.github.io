@@ -1,3 +1,5 @@
+//sc
+
 "use strict";
 window.addEventListener("DOMContentLoaded", () => {
     const tabbar = new TabBar("nav");
