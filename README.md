@@ -13,7 +13,8 @@ Welcome to **Miranoo**, a powerful, fast, and intelligent search engine designed
 Simply enter your query in the search bar 🔍, and Miranoo will provide relevant results instantly. Use advanced search options for more refined control over your search results.
 
 ## 📜 License
-Miranoo is licensed under the MIT License. Feel free to use, modify, and distribute it as per the terms of the license.
+Miranoo is currently licensed under the Linko Softworks LLC. Any modification, editing, modding, cloning, etc... will result to legal actions.
+2024 - Miranoo 2.0 Reserved©
 
 ## 📧 Contact
 For any questions, issues 🐛, or suggestions 💡, please open an issue on GitHub or reach out to us at [e.miranoo.infoline@gmail.com](mailto:e.miranoo.infoline@gmail.com).
