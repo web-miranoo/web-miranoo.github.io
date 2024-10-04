@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const addTodoBtn = document.getElementById("add-todo");
     const todoList = document.getElementById("todo-list");
 
+    // Check if elements exist before proceeding
+    if (!todoInput || !addTodoBtn || !todoList) {
+        console.error("One or more elements could not be found in the DOM.");
+        return;
+    }
+
     const sampleData = [
         {
             text: "Complete project documentation",
@@ -44,16 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 subtaskItem.textContent = subtask;
                 subtaskList.appendChild(subtaskItem);
             });
+
             // Event listeners for task actions
-            todoItem
-                .querySelector(".complete-btn")
-                .addEventListener("click", () => toggleComplete(todoItem));
-            todoItem
-                .querySelector(".delete-btn")
-                .addEventListener("click", () => deleteTodoItem(todoItem));
-            todoItem
-                .querySelector(".subtask-btn")
-                .addEventListener("click", () => addSubtask(todoItem));
+            todoItem.querySelector(".complete-btn").addEventListener("click", () => toggleComplete(todoItem));
+            todoItem.querySelector(".delete-btn").addEventListener("click", () => deleteTodoItem(todoItem));
+            todoItem.querySelector(".subtask-btn").addEventListener("click", () => addSubtask(todoItem));
+
             todoList.appendChild(todoItem);
         });
     }
@@ -75,15 +77,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <ul class="subtasks"></ul>
             `;
 
-            todoItem
-                .querySelector(".complete-btn")
-                .addEventListener("click", () => toggleComplete(todoItem));
-            todoItem
-                .querySelector(".delete-btn")
-                .addEventListener("click", () => deleteTodoItem(todoItem));
-            todoItem
-                .querySelector(".subtask-btn")
-                .addEventListener("click", () => addSubtask(todoItem));
+            // Attach event listeners to new task
+            todoItem.querySelector(".complete-btn").addEventListener("click", () => toggleComplete(todoItem));
+            todoItem.querySelector(".delete-btn").addEventListener("click", () => deleteTodoItem(todoItem));
+            todoItem.querySelector(".subtask-btn").addEventListener("click", () => addSubtask(todoItem));
+
             todoList.appendChild(todoItem);
             todoInput.value = "";
         }
