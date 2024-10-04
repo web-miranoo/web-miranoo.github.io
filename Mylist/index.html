@@ -10,21 +10,39 @@
 
 <body>
 
-  <div class="todo-container">
-    <div class="todo-header">
-      <h2>Todo List</h2>
-      <div style="display: flex;">
-        <input type="text" id="todo-input" class="todo-input" placeholder="Add a new task">
-        <button id="add-todo" class="todo-button">Add Task</button>
-      </div>
-    </div>
-    <ul id="todo-list" class="todo-list"></ul>
-  </div>
+  <div class="container">
+	<header class="header">
+		<h1>Todo Looo</h1>
+	</header>
 
-  <script>
+	<section class="todo-input-section">
+		<div class="todo-input-wrapper">
+			<input type="text" class="todo-input" placeholder="What do you want to do?" />
+			<button class="add-button">Add</button>
+		</div>
+	</section>
+	<p> </p>
+	<section class="todo-list-section">
+		<ul class="todo-list"></ul>
+	</section>
+	<!-- Backup and Restore buttons -->
+	<div class="backup-restore-buttons">
+		<button class="backup-button">Backup</button>
+		<button class="restore-button">Restore</button>
+	</div>
+	<!-- Completed tasks button -->
+	<button class="completed-tasks-button">Completed Tasks <i class="fas fa-tasks"></i></button>
 
-  </script>
-
+	<!-- Modal for completed tasks -->
+	<div class="modal">
+		<div class="modal-content">
+			<span class="close-button">&times;</span>
+			<h2 class="h2sep">Completed Tasks</h2>
+			<ul class="completed-tasks-list"></ul>
+		</div>
+	</div>
+</div>
+  
 </body>
 
 </html>
