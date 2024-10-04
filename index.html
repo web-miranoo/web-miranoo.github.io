@@ -24,9 +24,12 @@
             justify-content: space-around;
             width: 80%;
         }
-        .gcse-searchbox,
+        .gcse-searchbox {
+            width: 45%;
+        }
         .gcse-searchresults {
             width: 45%;
+            font-size: 0.8em;
         }
         .gcse-search {
             margin-top: 0;
@@ -46,7 +49,9 @@
     <!-- Google Custom Search Element -->
     <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
     <div class="container">
+        <!-- Search Box -->
         <div class="gcse-searchbox"></div>
+        <!-- Search Results -->
         <div class="gcse-searchresults"></div>
     </div>
 </body>
