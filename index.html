@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Miranoo</title>
-  <script src="main.js"></script>
   <style>
     body {
       display: flex;
@@ -19,9 +18,12 @@
     }
 
     h2 {
-      color: #d4af37;
-      text-shadow: 1px 1px 5px rgba(169, 169, 169, 0.1), 1px 1px 10px rgba(255, 255, 255, 0.05);
-      
+      background: linear-gradient(to right, #ffffff, #dcdcdc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+      margin-bottom: 0.9em;
+      text-align: center;
     }
 
     .gcse-searchresults {
@@ -32,11 +34,12 @@
     }
   </style>
 </head>
-
-  <script src="main.js"></script>
+<body>
+  <div id="stars-container"></div>
   <h2>Miranoo Search Engine</h2>
   <script async src="https://cse.google.com/cse.js?cx=a781e2ac758ca4f26"></script>
   <div class="gcse-search"></div>
   <div class="gcse-searchresults"></div>
+  <script src="main.js"></script>
 </body>
 </html>
