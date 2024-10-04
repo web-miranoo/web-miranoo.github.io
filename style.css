@@ -9,31 +9,3 @@ body {
     height: 100vh;
     margin: 0;
 }
-
-h2 {
-    margin-bottom: 0.9em;
-    text-align: center;
-    font-size: 1em;
-}
-
-.gcse-search {
-    margin-top: 0.5em;
-}
-
-.gcse-searchresults {
-    width: 100%;
-    font-size: 0.9em;
-    line-height: 1.2em;
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 10px;
-}
-
-input.gsc-input {
-    border-radius: 20px;
-    padding: 10px;
-}
-
-input.gsc-search-button {
-    margin-left: -5px;
-}
