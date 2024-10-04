@@ -1,168 +1,109 @@
-const taskForm = document.getElementById("task-form");
-const taskInput = document.getElementById("task-input");
-const taskList = document.getElementById("task-list");
-const resetBtn = document.getElementById("reset-btn");
-const themeToggle = document.getElementById("theme-toggle");
+const todoInput = document.getElementById("todo-input");
+const addTodoBtn = document.getElementById("add-todo");
+const todoList = document.getElementById("todo-list");
 
-const defaultTasks = [
-	{
-		id: 1,
-		text: "Create a Pen",
-		completed: false,
-		progress: 0,
-		dueDate: "2024-09-30"
-	},
-	{
-		id: 2,
-		text: "Go for a walk",
-		completed: false,
-		progress: 10,
-		dueDate: "2024-12-31"
-	}
+const sampleData = [
+  {
+    text: "Complete project documentation",
+    completed: false,
+    subtasks: ["Write user guide", "Update API references"]
+  },
+  {
+    text: "Design new homepage layout",
+    completed: true,
+    subtasks: ["Create wireframes", "Review design with team"]
+  },
+  {
+    text: "Prepare for client meeting",
+    completed: false,
+    subtasks: ["Create presentation", "Send meeting agenda"]
+  }
 ];
 
-let tasks = [...defaultTasks];
-let nextId = 3;
+function renderSampleData() {
+  sampleData.forEach((task) => {
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todo-item");
+    if (task.completed) {
+      todoItem.classList.add("completed");
+    }
+    todoItem.innerHTML = `
+        <span>${task.text}</span>
+        <div class="task-actions">
+          <button class="icon-btn complete-btn">✔️</button>
+          <button class="icon-btn subtask-btn">➕</button>
+          <button class="icon-btn delete-btn">❌</button>
+        </div>
+        <ul class="subtasks"></ul>
+      `;
 
-function saveTasks() {
-	localStorage.setItem("tasks", JSON.stringify(tasks));
+    const subtaskList = todoItem.querySelector(".subtasks");
+    task.subtasks.forEach((subtask) => {
+      const subtaskItem = document.createElement("li");
+      subtaskItem.textContent = subtask;
+      subtaskList.appendChild(subtaskItem);
+    });
+    // Event listeners for task actions
+    todoItem
+      .querySelector(".complete-btn")
+      .addEventListener("click", () => toggleComplete(todoItem));
+    todoItem
+      .querySelector(".delete-btn")
+      .addEventListener("click", () => deleteTodoItem(todoItem));
+    todoItem
+      .querySelector(".subtask-btn")
+      .addEventListener("click", () => addSubtask(todoItem));
+    todoList.appendChild(todoItem);
+  });
 }
 
-function renderTasks() {
-	taskList.innerHTML = "";
-	tasks.forEach((task) => {
-		const li = document.createElement("li");
-		li.className = `task-item${task.completed ? " completed" : ""}`;
-		li.dataset.id = task.id;
-		li.innerHTML = `
-          <div class="task-header">
-            <span class="drag-handle">☰</span>
-            <span class="task-title">${task.text}</span>
-            <div class="task-actions">
-              <button class="delete-btn"><i class="fa-solid fa-eraser"></i></button>
-            </div>
-          </div>
-          <div class="task-content">
-            <div class="task-row">
-              <span class="task-label">Progress:</span>
-              <div class="progress-container">
-                <progress value="${task.progress}" max="100"></progress>
-                <span class="progress-value">${task.progress}%</span>
-              </div>
-            </div>
-            <div class="task-row due-date-row">
-              <input type="checkbox" ${task.completed ? "checked" : ""}>
-              <span class="task-label">Due Date:</span>
-              <input type="date" value="${task.dueDate || ""}">
-            </div>
-          </div>
-        `;
+addTodoBtn.addEventListener("click", addTodo);
 
-		const checkbox = li.querySelector('.due-date-row input[type="checkbox"]');
-		checkbox.addEventListener("change", () => {
-			task.completed = checkbox.checked;
-			li.classList.toggle("completed", task.completed);
-			saveTasks();
-		});
+function addTodo() {
+  const taskText = todoInput.value.trim();
+  if (taskText !== "") {
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todo-item");
+    todoItem.innerHTML = `
+        <span>${taskText}</span>
+        <div class="task-actions">
+          <button class="icon-btn complete-btn">✔️</button>
+          <button class="icon-btn subtask-btn">➕</button>
+          <button class="icon-btn delete-btn">❌</button>
+        </div>
+        <ul class="subtasks"></ul>
+      `;
 
-		const dateInput = li.querySelector('input[type="date"]');
-		dateInput.addEventListener("change", () => {
-			task.dueDate = dateInput.value;
-			saveTasks();
-		});
-
-		const progressBar = li.querySelector("progress");
-		const progressValue = li.querySelector(".progress-value");
-		progressBar.addEventListener("click", (e) => {
-			const rect = progressBar.getBoundingClientRect();
-			const clickPosition = e.clientX - rect.left;
-			const progressPercentage = (clickPosition / rect.width) * 100;
-			task.progress = Math.round(progressPercentage);
-			progressBar.value = task.progress;
-			progressValue.textContent = `${task.progress}%`;
-			saveTasks();
-		});
-
-		const deleteBtn = li.querySelector(".delete-btn");
-		deleteBtn.addEventListener("click", () => {
-			tasks = tasks.filter((t) => t.id !== task.id);
-			renderTasks();
-			saveTasks();
-		});
-
-		taskList.appendChild(li);
-	});
-
-	// Initialize drag and drop functionality
-	new Sortable(taskList, {
-		animation: 150,
-		handle: ".drag-handle",
-		onEnd: function (evt) {
-			const itemEl = evt.item;
-			const newIndex = evt.newIndex;
-			const oldIndex = evt.oldIndex;
-
-			// Update the tasks array
-			const [movedTask] = tasks.splice(oldIndex, 1);
-			tasks.splice(newIndex, 0, movedTask);
-
-			saveTasks();
-		}
-	});
+    todoItem
+      .querySelector(".complete-btn")
+      .addEventListener("click", () => toggleComplete(todoItem));
+    todoItem
+      .querySelector(".delete-btn")
+      .addEventListener("click", () => deleteTodoItem(todoItem));
+    todoItem
+      .querySelector(".subtask-btn")
+      .addEventListener("click", () => addSubtask(todoItem));
+    todoList.appendChild(todoItem);
+    todoInput.value = "";
+  }
 }
 
-function resetTasks() {
-	tasks = [...defaultTasks];
-	saveTasks();
-	renderTasks();
+function toggleComplete(todoItem) {
+  todoItem.classList.toggle("completed");
 }
 
-taskForm.addEventListener("submit", (e) => {
-	e.preventDefault();
-	const taskText = taskInput.value.trim();
-	if (taskText) {
-		tasks.push({
-			id: nextId++,
-			text: taskText,
-			completed: false,
-			progress: 0,
-			dueDate: ""
-		});
-		taskInput.value = "";
-		renderTasks();
-		saveTasks();
-	}
-});
-
-resetBtn.addEventListener("click", resetTasks);
-
-// Load tasks from localStorage if available
-const savedTasks = localStorage.getItem("tasks");
-if (savedTasks) {
-	tasks = JSON.parse(savedTasks);
-	nextId = Math.max(...tasks.map((t) => t.id)) + 1;
+function deleteTodoItem(todoItem) {
+  todoItem.remove();
 }
 
-renderTasks();
-
-// Update time in status bar
-function updateTime() {
-	const now = new Date();
-	const timeString = now.toLocaleTimeString("en-US", {
-		hour: "numeric",
-		minute: "2-digit",
-		hour12: true
-	});
-	document.querySelector(".time").textContent = timeString;
+function addSubtask(todoItem) {
+  const subtaskText = prompt("Enter subtask:");
+  if (subtaskText) {
+    const subtaskList = todoItem.querySelector(".subtasks");
+    const subtaskItem = document.createElement("li");
+    subtaskItem.textContent = subtaskText;
+    subtaskList.appendChild(subtaskItem);
+  }
 }
-updateTime();
-setInterval(updateTime, 1000);
 
-// Theme toggle functionality
-themeToggle.addEventListener("click", () => {
-	document.body.classList.toggle("light-mode");
-	document.body.classList.toggle("dark-mode");
-	themeToggle.innerHTML = document.body.classList.contains("light-mode")
-		? '<i class="fa-regular fa-sun"></i>'
-		: '<i class="fa-regular fa-moon"></i>';
-});
+window.onload = renderSampleData;
